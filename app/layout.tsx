@@ -32,15 +32,17 @@ export default function RootLayout({
           appearance={{
             theme: shadcn,
           }}
+          signInFallbackRedirectUrl="/dashboard"
+          signUpFallbackRedirectUrl="/dashboard"
         >
           <header className="flex justify-end items-center p-4 gap-4 h-16">
             <Show when="signed-out">
-              <SignInButton>
+              <SignInButton mode="modal">
                 <Button variant="outline" size="default">
                   Sign In
                 </Button>
               </SignInButton>
-              <SignUpButton>
+              <SignUpButton mode="modal">
                 <Button variant="default" size="default">
                   Sign Up
                 </Button>

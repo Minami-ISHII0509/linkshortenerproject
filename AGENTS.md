@@ -60,12 +60,13 @@ This is **NOT OPTIONAL**. Before making **ANY** changes to this codebase, you **
 
 1. **Creating custom UI components** - ALWAYS use shadcn/ui components (see [/docs/ui-components.md](/docs/ui-components.md))
 2. **Using outdated Next.js patterns** - Always check Next.js 16 docs
-3. **Importing from wrong paths** - Use `@/` alias, not relative paths
-4. **Using `any` type** - TypeScript strict mode is enabled
-5. **Creating custom CSS** - Use Tailwind utilities
-6. **Hardcoding URLs** - Use environment variables
-7. **Ignoring authentication** - All user routes must be protected
-8. **Direct database access** - Use Drizzle ORM patterns
+3. **Using `middleware.ts`** - **NEVER** use middleware.ts as it is deprecated in Next.js 16+. Use `proxy.ts` instead
+4. **Importing from wrong paths** - Use `@/` alias, not relative paths
+5. **Using `any` type** - TypeScript strict mode is enabled
+6. **Creating custom CSS** - Use Tailwind utilities
+7. **Hardcoding URLs** - Use environment variables
+8. **Ignoring authentication** - All user routes must be protected
+9. **Direct database access** - Use Drizzle ORM patterns
 
 ## 🎯 Project-Specific Rules
 
@@ -106,6 +107,11 @@ This is **NOT OPTIONAL**. Before making **ANY** changes to this codebase, you **
 - One component per file (except related sub-components)
 - Colocate types with components
 - Use `/lib` for shared utilities
+
+### Routing & Middleware
+- **NEVER use `middleware.ts`** - This is deprecated in Next.js 16+
+- Use `proxy.ts` instead for request interception and routing logic
+- This project uses Next.js 16.2.9 which has removed middleware.ts support
 
 ## 📖 Quick Reference
 
